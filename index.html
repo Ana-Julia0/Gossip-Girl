@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gossip Girl</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(120deg, #000, #333);
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            color: #f1c40f;
+        }
+        h1 {
+            color: #f1c40f;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #f1c40f;
+            border-radius: 25px;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+            background: #222;
+            color: #f1c40f;
+        }
+        .search-bar input:focus {
+            border-color: #d4af37;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background: #111;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid #f1c40f;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            border: 3px solid #f1c40f;
+        }
+        .card p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gossip Girl</h1>
+        <p>XOXO, Gossip Girl</p>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Pesquisar personagem...">
+        </div>
+        <div class="cards" id="characterList">
+            <div class="card" data-name="serena">
+                <img src="imagem/serena.jfif" alt="Serena van der Woodsen">
+                <p>Serena van der Woodsen</p>
+            </div>
+            <div class="card" data-name="blair">
+                <img src="imagem/blair.jfif" alt="Blair Waldorf">
+                <p>Blair Waldorf</p>
+            </div>
+            <div class="card" data-name="chuck">
+                <img src="imagem/chuck.jfif" alt="Chuck Bass">
+                <p>Chuck Bass</p>
+            </div>
+            <div class="card" data-name="nate">
+                <img src="imagem/nate2.jfif" alt="Nate Archibald">
+                <p>Nate Archibald</p>
+            </div>
+            <div class="card" data-name="dan">
+                <img src="imagem/dan.jfif" alt="Dan Humphrey">
+                <p>Dan Humphrey</p>
+            </div>
+            <div class="card" data-name="jenny">
+                <img src="imagem/jenny.jfif" alt="Jenny Humphrey">
+                <p>Jenny Humphrey</p>
+            </div>
+            <div class="card" data-name="vanessa">
+                <img src="imagem/vanessa.jfif" alt="Vanessa Abrams">
+                <p>Vanessa Abrams</p>
+            </div>
+            <div class="card" data-name="georgina">
+                <img src="imagem/georgina.jfif" alt="Georgina Sparks">
+                <p>Georgina Sparks</p>
+            </div>
+            <div class="card" data-name="lily">
+                <img src="imagem/lily.jfif" alt="Lily van der Woodsen">
+                <p>Lily van der Woodsen</p>
+            </div>
+            <div class="card" data-name="rufus">
+                <img src="imagem/rufus.jfif" alt="Rufus Humphrey">
+                <p>Rufus Humphrey</p>
+            </div>
+            <div class="card" data-name="eric">
+                <img src="imagem/eric.jfif" alt="Eric van der Woodsen">
+                <p>Eric van der Woodsen</p>
+            </div>
+            <div class="card" data-name="carter">
+                <img src="imagem/carter.jfif" alt="Carter Baizen">
+                <p>Carter Baizen</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("search").addEventListener("input", function() {
+            let filter = this.value.toLowerCase();
+            let cards = document.querySelectorAll(".card");
+            
+            cards.forEach(card => {
+                let name = card.getAttribute("data-name");
+                if (name.includes(filter)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
